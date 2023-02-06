@@ -42,7 +42,7 @@ const mockNonEligibleCustomer = {
       ]
   }
 
-  const averageConsumption = 5509.166666666667
+const averageConsumption = 5509.166666666667
 
 describe('test: validate consumption class', () => {
     it('should return true when customer is eligible for consumption class', () => {
@@ -68,7 +68,6 @@ describe('test: calculate average consumption', () => {
     it('should return the average of the consumption history values', () => {
         expect(calculateAverageConsumption(mockEligibleCustomer.historicoDeConsumo)).toBeCloseTo(5509.166666666667)
     })
-    
 })
 
 describe('test: validate connection type', () => {
@@ -77,7 +76,7 @@ describe('test: validate connection type', () => {
     })
     
     it('should return the reason the customer is not eligible', () => {
-        expect(validateConnectionType(mockNonEligibleCustomer.tipoDeConexao, calculateAverageConsumption, mockNonEligibleCustomer.historicoDeConsumo)).toBe("Consumo médio abaixo do exigido para o tipo de conexão")
+        expect(validateConnectionType(mockNonEligibleCustomer.tipoDeConexao, calculateAverageConsumption, mockNonEligibleCustomer.historicoDeConsumo)).toBe("Consumo muito baixo para tipo de conexão")
     })
 })
 
